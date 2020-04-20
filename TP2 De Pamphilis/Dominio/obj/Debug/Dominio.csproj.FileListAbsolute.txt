@@ -1,0 +1,6 @@
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Dominio\bin\Debug\Dominio.dll
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Dominio\bin\Debug\Dominio.pdb
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Dominio\obj\Debug\Dominio.dll
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Dominio\obj\Debug\Dominio.pdb
