@@ -44,7 +44,9 @@ namespace FrontEnd
         }
         private void button_Newproduct_Click(object sender, EventArgs e)
         {
-            
+            Form_Alta newform = new Form_Alta();
+            newform.Show();
+
 
 
         }

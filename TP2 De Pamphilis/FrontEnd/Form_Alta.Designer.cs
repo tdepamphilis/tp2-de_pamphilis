@@ -38,6 +38,9 @@
             this.label_Marca = new System.Windows.Forms.Label();
             this.label_Url = new System.Windows.Forms.Label();
             this.label_Desc = new System.Windows.Forms.Label();
+            this.button_Aceptar = new System.Windows.Forms.Button();
+            this.textBox_Precio = new System.Windows.Forms.TextBox();
+            this.label_Price = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox_Name
@@ -46,6 +49,7 @@
             this.textBox_Name.Name = "textBox_Name";
             this.textBox_Name.Size = new System.Drawing.Size(196, 20);
             this.textBox_Name.TabIndex = 0;
+            this.textBox_Name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Name_KeyPress);
             // 
             // comboBox_Categoria
             // 
@@ -65,18 +69,20 @@
             // 
             // textBox_Desc
             // 
-            this.textBox_Desc.Location = new System.Drawing.Point(111, 182);
+            this.textBox_Desc.Location = new System.Drawing.Point(111, 221);
             this.textBox_Desc.Multiline = true;
             this.textBox_Desc.Name = "textBox_Desc";
             this.textBox_Desc.Size = new System.Drawing.Size(230, 69);
             this.textBox_Desc.TabIndex = 3;
+            this.textBox_Desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Desc_KeyPress);
             // 
             // textBox_Imagen
             // 
-            this.textBox_Imagen.Location = new System.Drawing.Point(111, 144);
+            this.textBox_Imagen.Location = new System.Drawing.Point(111, 184);
             this.textBox_Imagen.Name = "textBox_Imagen";
             this.textBox_Imagen.Size = new System.Drawing.Size(230, 20);
             this.textBox_Imagen.TabIndex = 4;
+            this.textBox_Imagen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Imagen_KeyPress);
             // 
             // label_Name
             // 
@@ -108,7 +114,7 @@
             // label_Url
             // 
             this.label_Url.AutoSize = true;
-            this.label_Url.Location = new System.Drawing.Point(28, 147);
+            this.label_Url.Location = new System.Drawing.Point(28, 184);
             this.label_Url.Name = "label_Url";
             this.label_Url.Size = new System.Drawing.Size(72, 13);
             this.label_Url.TabIndex = 8;
@@ -117,17 +123,47 @@
             // label_Desc
             // 
             this.label_Desc.AutoSize = true;
-            this.label_Desc.Location = new System.Drawing.Point(22, 200);
+            this.label_Desc.Location = new System.Drawing.Point(17, 224);
             this.label_Desc.Name = "label_Desc";
             this.label_Desc.Size = new System.Drawing.Size(83, 13);
             this.label_Desc.TabIndex = 9;
             this.label_Desc.Text = "DESCRIPCION:";
             // 
+            // button_Aceptar
+            // 
+            this.button_Aceptar.Location = new System.Drawing.Point(210, 309);
+            this.button_Aceptar.Name = "button_Aceptar";
+            this.button_Aceptar.Size = new System.Drawing.Size(131, 32);
+            this.button_Aceptar.TabIndex = 10;
+            this.button_Aceptar.Text = "Aceptar";
+            this.button_Aceptar.UseVisualStyleBackColor = true;
+            this.button_Aceptar.Click += new System.EventHandler(this.button_Aceptar_Click);
+            // 
+            // textBox_Precio
+            // 
+            this.textBox_Precio.Location = new System.Drawing.Point(111, 145);
+            this.textBox_Precio.Name = "textBox_Precio";
+            this.textBox_Precio.Size = new System.Drawing.Size(118, 20);
+            this.textBox_Precio.TabIndex = 11;
+            this.textBox_Precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Precio_KeyPress);
+            // 
+            // label_Price
+            // 
+            this.label_Price.AutoSize = true;
+            this.label_Price.Location = new System.Drawing.Point(39, 152);
+            this.label_Price.Name = "label_Price";
+            this.label_Price.Size = new System.Drawing.Size(37, 13);
+            this.label_Price.TabIndex = 12;
+            this.label_Price.Text = "Precio";
+            // 
             // Form_Alta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 336);
+            this.ClientSize = new System.Drawing.Size(374, 378);
+            this.Controls.Add(this.label_Price);
+            this.Controls.Add(this.textBox_Precio);
+            this.Controls.Add(this.button_Aceptar);
             this.Controls.Add(this.label_Desc);
             this.Controls.Add(this.label_Url);
             this.Controls.Add(this.label_Marca);
@@ -158,5 +194,8 @@
         private System.Windows.Forms.Label label_Marca;
         private System.Windows.Forms.Label label_Url;
         private System.Windows.Forms.Label label_Desc;
+        private System.Windows.Forms.Button button_Aceptar;
+        private System.Windows.Forms.TextBox textBox_Precio;
+        private System.Windows.Forms.Label label_Price;
     }
 }
