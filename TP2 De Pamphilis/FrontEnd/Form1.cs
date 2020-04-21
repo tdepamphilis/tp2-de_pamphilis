@@ -42,6 +42,12 @@ namespace FrontEnd
         {
             FilterData();
         }
+        private void button_Newproduct_Click(object sender, EventArgs e)
+        {
+            
+
+
+        }
         private void Startgrid()
         {
             // inicializa la tabla
@@ -141,6 +147,5 @@ namespace FrontEnd
             }
         }
 
-        
     }
 }

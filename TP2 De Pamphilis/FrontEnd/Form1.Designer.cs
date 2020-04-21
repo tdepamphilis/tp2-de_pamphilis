@@ -39,6 +39,7 @@
             this.comboBox_FilterBy = new System.Windows.Forms.ComboBox();
             this.button_Filter = new System.Windows.Forms.Button();
             this.textBox_Search = new System.Windows.Forms.TextBox();
+            this.button_Newproduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Product)).BeginInit();
             this.SuspendLayout();
@@ -121,11 +122,22 @@
             this.textBox_Search.Size = new System.Drawing.Size(212, 20);
             this.textBox_Search.TabIndex = 9;
             // 
+            // button_Newproduct
+            // 
+            this.button_Newproduct.Location = new System.Drawing.Point(504, 146);
+            this.button_Newproduct.Name = "button_Newproduct";
+            this.button_Newproduct.Size = new System.Drawing.Size(154, 42);
+            this.button_Newproduct.TabIndex = 10;
+            this.button_Newproduct.Text = "Nuevo producto";
+            this.button_Newproduct.UseVisualStyleBackColor = true;
+            this.button_Newproduct.Click += new System.EventHandler(this.button_Newproduct_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 688);
+            this.Controls.Add(this.button_Newproduct);
             this.Controls.Add(this.textBox_Search);
             this.Controls.Add(this.button_Filter);
             this.Controls.Add(this.comboBox_FilterBy);
@@ -156,6 +168,7 @@
         private System.Windows.Forms.ComboBox comboBox_FilterBy;
         private System.Windows.Forms.Button button_Filter;
         private System.Windows.Forms.TextBox textBox_Search;
+        private System.Windows.Forms.Button button_Newproduct;
     }
 }
 
