@@ -46,11 +46,15 @@ namespace FrontEnd
         {
             Form_Alta newform = new Form_Alta();
             newform.Show();
-
-
-
         }
-        private void Startgrid()
+        private void Form1_Enter(object sender, EventArgs e)
+        {
+            Startgrid();
+        }
+        
+        //-----------------FUNCIONES DE CARGA-------------
+        
+        public void Startgrid()
         {
             // inicializa la tabla
             ProductoBusiness productoBusiness = new ProductoBusiness();

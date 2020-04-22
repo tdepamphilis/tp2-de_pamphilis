@@ -18,35 +18,20 @@ namespace FrontEnd
         {
             InitializeComponent();
         }
-
+        //-------------------EVENTOS-------------------------------
         private void Form_Alta_Load(object sender, EventArgs e)
         {
             LoadSliders();
+            GenerateCode();
 
         }
 
 
         private void button_Aceptar_Click(object sender, EventArgs e)
         {
-            if (!(textBox_Name.Text == "" || textBox_Desc.Text == "" || textBox_Name.Text == "" || textBox_Imagen.Text == "" || textBox_Precio.Text == ""))
-            {
-                Producto producto = new Producto();
-                decimal auxprice;
-                decimal.TryParse(textBox_Precio.Text, out auxprice);
-                producto.desc = textBox_Desc.Text;
-                producto.name = textBox_Name.Text;
-                producto.imagen = textBox_Imagen.Text;
-                producto.precio = auxprice;
-                producto.idCategoria = comboBox_Categoria.SelectedIndex;
-                producto.idMarca = comboBox_Marca.SelectedIndex;
-                
 
-
-
-            } else
-            {
-                MessageBox.Show("Por favor complete todos los campos");
-            }
+            alta();
+            
         }
 
         // --------------------VALIDACIONES------------------------------------
@@ -89,8 +74,42 @@ namespace FrontEnd
             comboBox_Categoria.DataSource = categoriabusiness.listar();
             comboBox_Marca.DataSource = marcaBusiness.listar();
         }
+        private void GenerateCode()
+        {
+            ProductoBusiness productoBusiness = new ProductoBusiness();
+            textBox_Code.Text = productoBusiness.GenerateCode();
+        }
+
+        //----------------PROCESOS----------------------------------------
+
+        private void alta()
+        {
+            if (!(textBox_Name.Text == "" || textBox_Desc.Text == "" || textBox_Name.Text == "" || textBox_Imagen.Text == "" || textBox_Precio.Text == ""))
+            {
+                ProductoBusiness productoBusiness = new ProductoBusiness();
+                Producto producto = new Producto();
+
+                decimal auxprice;
+                decimal.TryParse(textBox_Precio.Text, out auxprice);
+                producto.desc = textBox_Desc.Text;
+                producto.name = textBox_Name.Text;
+                producto.imagen = textBox_Imagen.Text;
+                producto.code = textBox_Code.Text;
+                producto.precio = auxprice;
+                producto.idCategoria = comboBox_Categoria.SelectedIndex +1;
+                producto.idMarca = comboBox_Marca.SelectedIndex +1;
+
+                productoBusiness.agregar(producto);
+
+                
+                Close();
 
 
-
+            }
+            else
+            {
+                MessageBox.Show("Por favor complete todos los campos");
+            }
+        }
     }
 }

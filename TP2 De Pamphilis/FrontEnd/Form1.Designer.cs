@@ -150,6 +150,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Enter += new System.EventHandler(this.Form1_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Main)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Product)).EndInit();
             this.ResumeLayout(false);
