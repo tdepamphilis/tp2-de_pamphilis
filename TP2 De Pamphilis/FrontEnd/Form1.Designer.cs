@@ -60,6 +60,7 @@
             this.button_Delete.TabIndex = 2;
             this.button_Delete.Text = "Eliminar";
             this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
             // 
             // button_Modify
             // 

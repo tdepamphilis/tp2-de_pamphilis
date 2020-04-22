@@ -153,6 +153,34 @@ namespace Business
 
 		}
 
+		public void delete(string code)
+		{
+			SqlConnection connection = new SqlConnection();
+			SqlCommand command = new SqlCommand();
+			try
+			{
+				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+				command.CommandType = System.Data.CommandType.Text;
+				command.CommandText = "delete from ARTICULOS where Codigo = @cod";
+									
+				command.Parameters.AddWithValue("@cod",code);
+				command.Connection = connection;
+				connection.Open();
+				command.ExecuteNonQuery();
+
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			finally
+			{
+				connection.Close();
+			}
+
+		}
+
 
 		//-------------- Generacion de codigo --------------------
 		private bool CheckCode(string code)

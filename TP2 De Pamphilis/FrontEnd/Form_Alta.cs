@@ -14,6 +14,23 @@ namespace FrontEnd
 {
     public partial class Form_Alta : Form
     {
+        private Producto producto;
+        public bool alta;
+        public Form_Alta()
+        {
+            producto = new Producto();
+            this.alta = true;
+                
+
+        }
+
+        public Form_Alta(Producto producto)
+        {
+            producto = this.producto;
+            this.alta = false;
+
+        }
+        
         public Form_Alta()
         {
             InitializeComponent();

@@ -47,6 +47,15 @@ namespace FrontEnd
             Form_Alta newform = new Form_Alta();
             newform.Show();
         }
+        private void button_Delete_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Desea eliminar el producto?", "Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            {
+                delete();
+                FilterData();
+            }          
+        }
         private void Form1_Enter(object sender, EventArgs e)
         {
             Startgrid();
@@ -70,6 +79,7 @@ namespace FrontEnd
             comboBox_FilterBy.Items.Add("-");
             comboBox_FilterBy.Items.Add("Categoria");
             comboBox_FilterBy.Items.Add("Marca");
+            comboBox_FilterBy.SelectedIndex = 0;
 
         }
 
@@ -151,6 +161,16 @@ namespace FrontEnd
                 }
 
             }
+        }
+
+        //-------------Operacines---------------------
+        private void delete()
+        {
+            Producto producto;
+            ProductoBusiness productoBusiness = new ProductoBusiness();
+            producto = (Producto)dataGridView_Main.CurrentRow.DataBoundItem;
+            productoBusiness.delete(producto.code);
+
         }
 
     }
