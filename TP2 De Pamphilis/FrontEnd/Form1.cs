@@ -56,6 +56,12 @@ namespace FrontEnd
                 FilterData();
             }          
         }
+        private void button_Modify_Click(object sender, EventArgs e)
+        {
+            Producto producto = (Producto)dataGridView_Main.CurrentRow.DataBoundItem;
+            Form_Alta alta = new Form_Alta(producto);
+            alta.Show();
+        }
         private void Form1_Enter(object sender, EventArgs e)
         {
             Startgrid();

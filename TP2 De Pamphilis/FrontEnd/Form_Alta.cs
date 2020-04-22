@@ -15,32 +15,39 @@ namespace FrontEnd
     public partial class Form_Alta : Form
     {
         private Producto producto;
-        public bool alta;
+        bool esAlta;
+        //-------------CONSTRUCTORES---------------------------
         public Form_Alta()
         {
+            InitializeComponent();
             producto = new Producto();
-            this.alta = true;
-                
+            esAlta = true;
+            
+            
 
+            
+            
         }
 
         public Form_Alta(Producto producto)
         {
-            producto = this.producto;
-            this.alta = false;
+            InitializeComponent();
+            this.producto = producto;
+            esAlta = false;
 
         }
-        
-        public Form_Alta()
-        {
-            InitializeComponent();
-        }
+
         //-------------------EVENTOS-------------------------------
         private void Form_Alta_Load(object sender, EventArgs e)
         {
             LoadSliders();
-            GenerateCode();
+            if (esAlta)
+                GenerateCode();
+            else
+                cargarCampos();
 
+
+          
         }
 
 
@@ -97,6 +104,19 @@ namespace FrontEnd
             textBox_Code.Text = productoBusiness.GenerateCode();
         }
 
+
+        private void cargarCampos()
+        {
+            
+            textBox_Name.Text = producto.name;
+            textBox_Desc.Text = producto.desc;
+            textBox_Precio.Text = producto.precio.ToString();
+            textBox_Imagen.Text = producto.imagen;
+            textBox_Code.Text = producto.code;
+            comboBox_Categoria.SelectedIndex = producto.idCategoria - 1;
+            comboBox_Marca.SelectedIndex = producto.idMarca - 1;
+        }
+
         //----------------PROCESOS----------------------------------------
 
         private void alta()
@@ -104,7 +124,6 @@ namespace FrontEnd
             if (!(textBox_Name.Text == "" || textBox_Desc.Text == "" || textBox_Name.Text == "" || textBox_Imagen.Text == "" || textBox_Precio.Text == ""))
             {
                 ProductoBusiness productoBusiness = new ProductoBusiness();
-                Producto producto = new Producto();
 
                 decimal auxprice;
                 decimal.TryParse(textBox_Precio.Text, out auxprice);
@@ -116,6 +135,8 @@ namespace FrontEnd
                 producto.idCategoria = comboBox_Categoria.SelectedIndex +1;
                 producto.idMarca = comboBox_Marca.SelectedIndex +1;
 
+                if (!esAlta)
+                    productoBusiness.delete(producto.code);
                 productoBusiness.agregar(producto);
 
                 
