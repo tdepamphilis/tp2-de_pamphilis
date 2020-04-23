@@ -117,7 +117,7 @@ namespace Business
 
 		}
 
-		//----------------- ESCRITURA ----------------------------
+		//------------------ESCRITURA ----------------------------
 		
 		public void agregar(Producto producto)
 		{
@@ -208,8 +208,35 @@ namespace Business
 			}
 		}
 
+		public void deleteMarca(int idMarca)
+		{
+			SqlConnection connection = new SqlConnection();
+			SqlCommand command = new SqlCommand();
+			try
+			{
+				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+				command.CommandType = System.Data.CommandType.Text;
+				command.CommandText = "delete from ARTICULOS where IdMarca = @cod";
 
-		//-------------- Generacion de codigo --------------------
+				command.Parameters.AddWithValue("@cod", idMarca);
+				command.Connection = connection;
+				connection.Open();
+				command.ExecuteNonQuery();
+
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			finally
+			{
+				connection.Close();
+			}
+		}
+
+
+		//-------------- Generacion de codigo----------------------
 		private bool CheckCode(string code)
 		{
 			List<Producto> lista = new List<Producto>();

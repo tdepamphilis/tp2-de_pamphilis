@@ -69,7 +69,7 @@ namespace FrontEnd
 
         private void textBox_Precio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 8)
+            if (e.KeyChar == 8 || e.KeyChar == 44)
             {
                 e.Handled = false;
             } else if(!(e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 32)

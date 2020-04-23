@@ -48,16 +48,21 @@
             this.button_NuevaCat = new System.Windows.Forms.Button();
             this.button_ModCat = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_NuevaMarca = new System.Windows.Forms.Button();
+            this.button_DelMarca = new System.Windows.Forms.Button();
+            this.button_ModMarca = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Product)).BeginInit();
             this.groupBox_Filtros.SuspendLayout();
             this.groupBox_Producto.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_desc
             // 
-            this.textBox_desc.Location = new System.Drawing.Point(677, 369);
+            this.textBox_desc.Location = new System.Drawing.Point(678, 343);
             this.textBox_desc.Multiline = true;
             this.textBox_desc.Name = "textBox_desc";
             this.textBox_desc.Size = new System.Drawing.Size(369, 235);
@@ -106,7 +111,7 @@
             // 
             // pictureBox_Product
             // 
-            this.pictureBox_Product.Location = new System.Drawing.Point(693, 115);
+            this.pictureBox_Product.Location = new System.Drawing.Point(693, 87);
             this.pictureBox_Product.Name = "pictureBox_Product";
             this.pictureBox_Product.Size = new System.Drawing.Size(342, 231);
             this.pictureBox_Product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -165,7 +170,7 @@
             this.groupBox_Filtros.Controls.Add(this.button_Filter);
             this.groupBox_Filtros.Controls.Add(this.comboBox_FilterBy);
             this.groupBox_Filtros.Controls.Add(this.comboBox_Filter);
-            this.groupBox_Filtros.Location = new System.Drawing.Point(25, 21);
+            this.groupBox_Filtros.Location = new System.Drawing.Point(25, 25);
             this.groupBox_Filtros.Name = "groupBox_Filtros";
             this.groupBox_Filtros.Size = new System.Drawing.Size(335, 150);
             this.groupBox_Filtros.TabIndex = 11;
@@ -177,7 +182,7 @@
             this.groupBox_Producto.Controls.Add(this.button_Newproduct);
             this.groupBox_Producto.Controls.Add(this.button_Modify);
             this.groupBox_Producto.Controls.Add(this.button_Delete);
-            this.groupBox_Producto.Location = new System.Drawing.Point(26, 584);
+            this.groupBox_Producto.Location = new System.Drawing.Point(25, 584);
             this.groupBox_Producto.Name = "groupBox_Producto";
             this.groupBox_Producto.Size = new System.Drawing.Size(214, 82);
             this.groupBox_Producto.TabIndex = 12;
@@ -222,18 +227,64 @@
             this.groupBox2.Controls.Add(this.button_ModCat);
             this.groupBox2.Controls.Add(this.button_NuevaCat);
             this.groupBox2.Controls.Add(this.button_DeleteCat);
-            this.groupBox2.Location = new System.Drawing.Point(246, 584);
+            this.groupBox2.Location = new System.Drawing.Point(245, 584);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(210, 82);
+            this.groupBox2.Size = new System.Drawing.Size(218, 82);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Categorias";
+            // 
+            // button_NuevaMarca
+            // 
+            this.button_NuevaMarca.ImageIndex = 2;
+            this.button_NuevaMarca.ImageList = this.imagelist;
+            this.button_NuevaMarca.Location = new System.Drawing.Point(13, 18);
+            this.button_NuevaMarca.Name = "button_NuevaMarca";
+            this.button_NuevaMarca.Size = new System.Drawing.Size(51, 51);
+            this.button_NuevaMarca.TabIndex = 17;
+            this.button_NuevaMarca.UseVisualStyleBackColor = true;
+            this.button_NuevaMarca.Click += new System.EventHandler(this.button_NuevaMarca_Click);
+            // 
+            // button_DelMarca
+            // 
+            this.button_DelMarca.ImageIndex = 4;
+            this.button_DelMarca.ImageList = this.imagelist;
+            this.button_DelMarca.Location = new System.Drawing.Point(70, 18);
+            this.button_DelMarca.Name = "button_DelMarca";
+            this.button_DelMarca.Size = new System.Drawing.Size(51, 51);
+            this.button_DelMarca.TabIndex = 18;
+            this.button_DelMarca.UseVisualStyleBackColor = true;
+            this.button_DelMarca.Click += new System.EventHandler(this.button_DelMarca_Click);
+            // 
+            // button_ModMarca
+            // 
+            this.button_ModMarca.ImageIndex = 3;
+            this.button_ModMarca.ImageList = this.imagelist;
+            this.button_ModMarca.Location = new System.Drawing.Point(127, 18);
+            this.button_ModMarca.Name = "button_ModMarca";
+            this.button_ModMarca.Size = new System.Drawing.Size(51, 51);
+            this.button_ModMarca.TabIndex = 19;
+            this.button_ModMarca.UseVisualStyleBackColor = true;
+            this.button_ModMarca.Click += new System.EventHandler(this.button_ModMarca_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button_NuevaMarca);
+            this.groupBox1.Controls.Add(this.button_ModMarca);
+            this.groupBox1.Controls.Add(this.button_DelMarca);
+            this.groupBox1.Location = new System.Drawing.Point(469, 584);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(212, 82);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Marcas";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 688);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox_Producto);
             this.Controls.Add(this.groupBox_Filtros);
@@ -242,6 +293,7 @@
             this.Controls.Add(this.textBox_desc);
             this.Name = "Form1";
             this.Text = "Gestor de productos";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Enter += new System.EventHandler(this.Form1_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Main)).EndInit();
@@ -250,6 +302,7 @@
             this.groupBox_Filtros.PerformLayout();
             this.groupBox_Producto.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,6 +327,10 @@
         private System.Windows.Forms.Button button_NuevaCat;
         private System.Windows.Forms.Button button_ModCat;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button_NuevaMarca;
+        private System.Windows.Forms.Button button_DelMarca;
+        private System.Windows.Forms.Button button_ModMarca;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

@@ -14,8 +14,14 @@ namespace FrontEnd
 {
     public partial class NuevaCategoria : Form
     {
-        public NuevaCategoria()
+        int tipo;
+        public NuevaCategoria(int tipo)
         {
+            this.tipo = tipo;
+            if (tipo == 0)
+                this.Text = "Nueva categoria";
+            else if (tipo == 1)
+                this.Text = "Nueva marca";
             InitializeComponent();
         }
 
@@ -23,6 +29,7 @@ namespace FrontEnd
         private void button_Aceptar_Click(object sender, EventArgs e)
         {
             aceptar();
+
         }
         private void button_Cancel_Click(object sender, EventArgs e)
         {
@@ -45,15 +52,26 @@ namespace FrontEnd
         private void aceptar()
         {
             CategoriaBusiness categoriaBusiness = new CategoriaBusiness();
+            MarcaBusiness marcaBusiness = new MarcaBusiness();
             if (textBox1.Text != "")
-                categoriaBusiness.add(textBox1.Text);
+            {
+                if (tipo == 0)
+                    categoriaBusiness.add(textBox1.Text);
+                else if (tipo == 1)
+                    marcaBusiness.add(textBox1.Text);
+
+                this.Close();
+            }
             else
                 MessageBox.Show("Agregue nombre");
         
         
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 
 

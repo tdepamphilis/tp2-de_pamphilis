@@ -14,8 +14,14 @@ namespace FrontEnd
 {
     public partial class BajaCategoria : Form
     {
-        public BajaCategoria()
+        int tipo;
+        public BajaCategoria(int tipo)
         {
+            this.tipo = tipo;
+            if (tipo == 0)
+                this.Text = "Eliminar categoria";
+            else if (tipo == 1)
+                this.Text = "Eliminar marca";
             InitializeComponent();
         }
 
@@ -26,7 +32,17 @@ namespace FrontEnd
         }
         private void button_Eliminar_Click(object sender, EventArgs e)
         {
-            delete();
+            if(tipo == 0)
+            {
+                deleteCategoria();
+            } else if(tipo == 1)
+            {
+                deleteMarca();
+            }
+            this.Close();
+                
+
+            
         }
         private void button_Cancel_Click(object sender, EventArgs e)
         {
@@ -37,15 +53,19 @@ namespace FrontEnd
         private void startSlider()
         {
             CategoriaBusiness categoriaBusiness = new CategoriaBusiness();
-            comboBox_Cat.DataSource = categoriaBusiness.listar();
-
+            MarcaBusiness marcaBusiness = new MarcaBusiness();
+            if (tipo == 0)
+                comboBox_Cat.DataSource = categoriaBusiness.listar();
+            else if(tipo == 1)
+                comboBox_Cat.DataSource = marcaBusiness.listar();
         }
 
-        private void delete()
+        private void deleteCategoria()
         {
+            
             CategoriaBusiness categoriaBusiness = new CategoriaBusiness();
             ProductoBusiness productoBusiness = new ProductoBusiness();
-            Categoria categoria = (Categoria)comboBox_Cat.SelectedItem;
+            Categoria categoria = (Categoria)comboBox_Cat.SelectedItem;            
             List<Producto> lista = productoBusiness.listar(1, categoria.code);
             var result = MessageBox.Show("hay " + lista.Count + " productos en la categoria, si acepta los eliminara tambien", "Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -60,5 +80,25 @@ namespace FrontEnd
 
         }
 
+        private void deleteMarca()
+        {
+            MarcaBusiness marcaBusiness = new MarcaBusiness();
+            ProductoBusiness productoBusiness = new ProductoBusiness();
+            Marca marca = (Marca)comboBox_Cat.SelectedItem;
+            List<Producto> lista = productoBusiness.listar(2, marca.code);
+            var result = MessageBox.Show("hay " + lista.Count + " productos en la marca, si acepta los eliminara tambien", "Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                productoBusiness.deleteMarca(marca.code);
+                marcaBusiness.delete(marca.code);
+
+            }
+            else
+            {
+                this.Close();
+            }
+
+        }
+    
     }
 }

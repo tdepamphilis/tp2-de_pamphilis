@@ -64,17 +64,46 @@ namespace FrontEnd
         }
         private void Form1_Enter(object sender, EventArgs e)
         {
+            
+            UpdateFilter();
             Startgrid();
+            UpdateInfo();
         }
         private void button_DeleteCat_Click(object sender, EventArgs e)
         {
-            BajaCategoria bajaCategoria = new BajaCategoria();
+            BajaCategoria bajaCategoria = new BajaCategoria(0);
             bajaCategoria.ShowDialog();
         }
         private void button_ModCat_Click(object sender, EventArgs e)
         {
-            FrmModificarCat frmModificarCat = new FrmModificarCat();
+            FrmModificarCat frmModificarCat = new FrmModificarCat(0);
             frmModificarCat.ShowDialog();
+        }
+        private void button_NuevaCat_Click(object sender, EventArgs e)
+        {
+            NuevaCategoria nuevaCategoria = new NuevaCategoria(0);
+            nuevaCategoria.ShowDialog();
+        }
+        private void button_NuevaMarca_Click(object sender, EventArgs e)
+        {
+            NuevaCategoria nuevaCategoria = new NuevaCategoria(1);
+            nuevaCategoria.ShowDialog();
+        }
+
+        private void button_DelMarca_Click(object sender, EventArgs e)
+        {
+            BajaCategoria bajaCategoria = new BajaCategoria(1);
+            bajaCategoria.ShowDialog();
+        }
+
+        private void button_ModMarca_Click(object sender, EventArgs e)
+        {
+            FrmModificarCat frmModificarCat = new FrmModificarCat(1);
+            frmModificarCat.ShowDialog();
+        }
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            
         }
         
         //-----------------FUNCIONES DE CARGA-------------
@@ -191,12 +220,6 @@ namespace FrontEnd
             producto = (Producto)dataGridView_Main.CurrentRow.DataBoundItem;
             productoBusiness.delete(producto.code);
 
-        }
-
-        private void button_NuevaCat_Click(object sender, EventArgs e)
-        {
-            NuevaCategoria nuevaCategoria = new NuevaCategoria();
-            nuevaCategoria.ShowDialog();
         }
 
     }

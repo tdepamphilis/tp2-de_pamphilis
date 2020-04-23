@@ -36,16 +36,16 @@
             // comboBox_Cat
             // 
             this.comboBox_Cat.FormattingEnabled = true;
-            this.comboBox_Cat.Location = new System.Drawing.Point(92, 70);
+            this.comboBox_Cat.Location = new System.Drawing.Point(59, 23);
             this.comboBox_Cat.Name = "comboBox_Cat";
             this.comboBox_Cat.Size = new System.Drawing.Size(183, 21);
             this.comboBox_Cat.TabIndex = 0;
             // 
             // button_Eliminar
             // 
-            this.button_Eliminar.Location = new System.Drawing.Point(212, 156);
+            this.button_Eliminar.Location = new System.Drawing.Point(158, 73);
             this.button_Eliminar.Name = "button_Eliminar";
-            this.button_Eliminar.Size = new System.Drawing.Size(155, 38);
+            this.button_Eliminar.Size = new System.Drawing.Size(111, 26);
             this.button_Eliminar.TabIndex = 1;
             this.button_Eliminar.Text = "Eliminar";
             this.button_Eliminar.UseVisualStyleBackColor = true;
@@ -53,9 +53,9 @@
             // 
             // button_Cancel
             // 
-            this.button_Cancel.Location = new System.Drawing.Point(36, 156);
+            this.button_Cancel.Location = new System.Drawing.Point(25, 73);
             this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(155, 38);
+            this.button_Cancel.Size = new System.Drawing.Size(109, 26);
             this.button_Cancel.TabIndex = 2;
             this.button_Cancel.Text = "Cancelar";
             this.button_Cancel.UseVisualStyleBackColor = true;
@@ -65,12 +65,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(295, 125);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_Eliminar);
             this.Controls.Add(this.comboBox_Cat);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BajaCategoria";
-            this.Text = "BajaCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.BajaCategoria_Load);
             this.ResumeLayout(false);
 
