@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BajaCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BajaCategoria.Designer.cs">
+      <DependentUpon>BajaCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,13 +64,34 @@
     <Compile Include="Form_Alta.Designer.cs">
       <DependentUpon>Form_Alta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModificarCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificarCat.Designer.cs">
+      <DependentUpon>FrmModificarCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevaCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevaCategoria.Designer.cs">
+      <DependentUpon>NuevaCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BajaCategoria.resx">
+      <DependentUpon>BajaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Alta.resx">
       <DependentUpon>Form_Alta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarCat.resx">
+      <DependentUpon>FrmModificarCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevaCategoria.resx">
+      <DependentUpon>NuevaCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

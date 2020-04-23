@@ -43,6 +43,7 @@
             this.label_Price = new System.Windows.Forms.Label();
             this.label_Code = new System.Windows.Forms.Label();
             this.textBox_Code = new System.Windows.Forms.TextBox();
+            this.button_Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox_Name
@@ -175,11 +176,22 @@
             this.textBox_Code.Size = new System.Drawing.Size(118, 20);
             this.textBox_Code.TabIndex = 14;
             // 
+            // button_Cancel
+            // 
+            this.button_Cancel.Location = new System.Drawing.Point(65, 361);
+            this.button_Cancel.Name = "button_Cancel";
+            this.button_Cancel.Size = new System.Drawing.Size(120, 32);
+            this.button_Cancel.TabIndex = 15;
+            this.button_Cancel.Text = "Cancelar";
+            this.button_Cancel.UseVisualStyleBackColor = true;
+            this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
+            // 
             // Form_Alta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 433);
+            this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.textBox_Code);
             this.Controls.Add(this.label_Code);
             this.Controls.Add(this.label_Price);
@@ -195,7 +207,11 @@
             this.Controls.Add(this.comboBox_Marca);
             this.Controls.Add(this.comboBox_Categoria);
             this.Controls.Add(this.textBox_Name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Alta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_Alta";
             this.Load += new System.EventHandler(this.Form_Alta_Load);
             this.ResumeLayout(false);
@@ -220,5 +236,6 @@
         private System.Windows.Forms.Label label_Price;
         private System.Windows.Forms.Label label_Code;
         private System.Windows.Forms.TextBox textBox_Code;
+        private System.Windows.Forms.Button button_Cancel;
     }
 }

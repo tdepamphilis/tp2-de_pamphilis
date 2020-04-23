@@ -10,6 +10,8 @@ namespace Business
 {
     public class CategoriaBusiness
     {
+     
+        //-------------LECTURA----------------- 
         public Categoria buscar(int id)
         {
             Categoria categoria;
@@ -73,9 +75,91 @@ namespace Business
             }
 
         }
-            
+        
+        //-------------ESCRITURA-------------
+
+        public void delete(int id)
+        {
+            SqlConnection connection = new SqlConnection();
+            SqlCommand command = new SqlCommand();
+            try
+            {
+                connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "delete from CATEGORIAS where Id = @cod";
+
+                command.Parameters.AddWithValue("@cod", id);
+                command.Connection = connection;
+                connection.Open();
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
+        public void add(string name)
+        {
+            SqlConnection connection = new SqlConnection();
+            SqlCommand command = new SqlCommand();
+            try
+            {
+                connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "insert into CATEGORIAS values (@name)";
+                command.Parameters.AddWithValue("@name", name);
+                command.Connection = connection;
+                connection.Open();
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
 
+        }
+
+        public void modify(string name, int id)
+        {
+            SqlConnection connection = new SqlConnection();
+            SqlCommand command = new SqlCommand();
+            try
+            {
+                connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "UPDATE CATEGORIAS set descripcion = @name where Id = @code";
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@code", id);
+                command.Connection = connection;
+                connection.Open();
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
             
 
     }

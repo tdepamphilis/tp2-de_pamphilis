@@ -14,3 +14,6 @@ C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\
 C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\bin\Debug\Dominio.pdb
 C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\obj\Debug\FrontEnd.csproj.CopyComplete
 C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\obj\Debug\FrontEnd.Form_Alta.resources
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\obj\Debug\FrontEnd.BajaCategoria.resources
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\obj\Debug\FrontEnd.NuevaCategoria.resources
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\obj\Debug\FrontEnd.FrmModificarCat.resources

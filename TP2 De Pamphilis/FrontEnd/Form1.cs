@@ -45,7 +45,7 @@ namespace FrontEnd
         private void button_Newproduct_Click(object sender, EventArgs e)
         {
             Form_Alta newform = new Form_Alta();
-            newform.Show();
+            newform.ShowDialog();
         }
         private void button_Delete_Click(object sender, EventArgs e)
         {
@@ -60,11 +60,21 @@ namespace FrontEnd
         {
             Producto producto = (Producto)dataGridView_Main.CurrentRow.DataBoundItem;
             Form_Alta alta = new Form_Alta(producto);
-            alta.Show();
+            alta.ShowDialog();
         }
         private void Form1_Enter(object sender, EventArgs e)
         {
             Startgrid();
+        }
+        private void button_DeleteCat_Click(object sender, EventArgs e)
+        {
+            BajaCategoria bajaCategoria = new BajaCategoria();
+            bajaCategoria.ShowDialog();
+        }
+        private void button_ModCat_Click(object sender, EventArgs e)
+        {
+            FrmModificarCat frmModificarCat = new FrmModificarCat();
+            frmModificarCat.ShowDialog();
         }
         
         //-----------------FUNCIONES DE CARGA-------------
@@ -131,6 +141,8 @@ namespace FrontEnd
         {
 
             ProductoBusiness productoBusiness = new ProductoBusiness();
+            Categoria categoria;
+            Marca marca;
             
             if(comboBox_FilterBy.SelectedIndex == 0)
             {
@@ -145,25 +157,27 @@ namespace FrontEnd
                 }
             } else if(comboBox_FilterBy.SelectedIndex == 1)
             {
-                if(textBox_Search.Text == "")
+                categoria = (Categoria)comboBox_Filter.SelectedItem;
+                if (textBox_Search.Text == "")
                 {
-                    // se muestran todos los de la categoria
-                    dataGridView_Main.DataSource = productoBusiness.listar(1, comboBox_Filter.SelectedIndex +1);
+                    // se muestran todos los de la categoria                 
+                    dataGridView_Main.DataSource = productoBusiness.listar(1,categoria.code);
                 } else
                 {
                     // se busca segun criterio en la categoria
-                    dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text, 1, comboBox_Filter.SelectedIndex + 1);
+                    dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text, 1, categoria.code);
                 }
             } else if(comboBox_FilterBy.SelectedIndex == 2)
             {
+                marca = (Marca)comboBox_Filter.SelectedItem;
                 if(textBox_Search.Text == "")
                 {
                     // Se buscan todos los de la marca
-                    dataGridView_Main.DataSource = productoBusiness.listar(2, comboBox_Filter.SelectedIndex +1);
+                    dataGridView_Main.DataSource = productoBusiness.listar(2, marca.code);
                 } else
                 {
                     // Se busca segun criterio en la Marca
-                    dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text, 2, comboBox_Filter.SelectedIndex + 1);
+                    dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text, 2, marca.code);
                 }
 
             }
@@ -177,6 +191,12 @@ namespace FrontEnd
             producto = (Producto)dataGridView_Main.CurrentRow.DataBoundItem;
             productoBusiness.delete(producto.code);
 
+        }
+
+        private void button_NuevaCat_Click(object sender, EventArgs e)
+        {
+            NuevaCategoria nuevaCategoria = new NuevaCategoria();
+            nuevaCategoria.ShowDialog();
         }
 
     }

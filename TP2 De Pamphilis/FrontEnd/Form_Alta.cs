@@ -22,7 +22,7 @@ namespace FrontEnd
             InitializeComponent();
             producto = new Producto();
             esAlta = true;
-            
+            this.Text = "Nuevo producto";
             
 
             
@@ -34,6 +34,7 @@ namespace FrontEnd
             InitializeComponent();
             this.producto = producto;
             esAlta = false;
+            this.Text = "Modificar producto";
 
         }
 
@@ -113,6 +114,7 @@ namespace FrontEnd
             textBox_Precio.Text = producto.precio.ToString();
             textBox_Imagen.Text = producto.imagen;
             textBox_Code.Text = producto.code;
+            
             comboBox_Categoria.SelectedIndex = producto.idCategoria - 1;
             comboBox_Marca.SelectedIndex = producto.idMarca - 1;
         }
@@ -124,6 +126,8 @@ namespace FrontEnd
             if (!(textBox_Name.Text == "" || textBox_Desc.Text == "" || textBox_Name.Text == "" || textBox_Imagen.Text == "" || textBox_Precio.Text == ""))
             {
                 ProductoBusiness productoBusiness = new ProductoBusiness();
+                Categoria categoria;
+                Marca marca;
 
                 decimal auxprice;
                 decimal.TryParse(textBox_Precio.Text, out auxprice);
@@ -132,8 +136,10 @@ namespace FrontEnd
                 producto.imagen = textBox_Imagen.Text;
                 producto.code = textBox_Code.Text;
                 producto.precio = auxprice;
-                producto.idCategoria = comboBox_Categoria.SelectedIndex +1;
-                producto.idMarca = comboBox_Marca.SelectedIndex +1;
+                categoria = (Categoria)comboBox_Categoria.SelectedItem;
+                producto.idCategoria = categoria.code;
+                marca = (Marca)comboBox_Marca.SelectedItem;
+                producto.idMarca = marca.code;
 
                 if (!esAlta)
                     productoBusiness.delete(producto.code);
@@ -148,6 +154,11 @@ namespace FrontEnd
             {
                 MessageBox.Show("Por favor complete todos los campos");
             }
+        }
+
+        private void button_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
