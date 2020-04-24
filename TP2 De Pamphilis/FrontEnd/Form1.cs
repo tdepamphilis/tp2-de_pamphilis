@@ -46,6 +46,8 @@ namespace FrontEnd
         {
             Form_Alta newform = new Form_Alta();
             newform.ShowDialog();
+            FilterData();
+
         }
         private void button_Delete_Click(object sender, EventArgs e)
         {
@@ -61,6 +63,7 @@ namespace FrontEnd
             Producto producto = (Producto)dataGridView_Main.CurrentRow.DataBoundItem;
             Form_Alta alta = new Form_Alta(producto);
             alta.ShowDialog();
+            FilterData();
         }
         private void Form1_Enter(object sender, EventArgs e)
         {
@@ -73,33 +76,41 @@ namespace FrontEnd
         {
             BajaCategoria bajaCategoria = new BajaCategoria(0);
             bajaCategoria.ShowDialog();
+            UpdateFilter();
+            FilterData();
         }
         private void button_ModCat_Click(object sender, EventArgs e)
         {
             FrmModificarCat frmModificarCat = new FrmModificarCat(0);
             frmModificarCat.ShowDialog();
+            UpdateFilter();
         }
         private void button_NuevaCat_Click(object sender, EventArgs e)
         {
             NuevaCategoria nuevaCategoria = new NuevaCategoria(0);
             nuevaCategoria.ShowDialog();
-        }
+            UpdateFilter();
+            FilterData();       }
         private void button_NuevaMarca_Click(object sender, EventArgs e)
         {
             NuevaCategoria nuevaCategoria = new NuevaCategoria(1);
             nuevaCategoria.ShowDialog();
+            UpdateFilter();
         }
 
         private void button_DelMarca_Click(object sender, EventArgs e)
         {
             BajaCategoria bajaCategoria = new BajaCategoria(1);
             bajaCategoria.ShowDialog();
+            UpdateFilter();
+            FilterData();
         }
 
         private void button_ModMarca_Click(object sender, EventArgs e)
         {
             FrmModificarCat frmModificarCat = new FrmModificarCat(1);
             frmModificarCat.ShowDialog();
+            UpdateFilter();
         }
         private void Form1_Activated(object sender, EventArgs e)
         {
