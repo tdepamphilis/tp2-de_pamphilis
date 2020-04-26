@@ -11,7 +11,7 @@ namespace Business
 {
 	public class ProductoBusiness
 	{
-		
+		AccesoDatos accesoDatos = new AccesoDatos();
 		//-----------------------LECTURA-------------------------
 		
 		// Lista todos los articulos , en donde range implica (0-2) indica si se filtra y search es la id del filtro a aplicar
@@ -24,7 +24,7 @@ namespace Business
 
 			try
 			{
-				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+				connection.ConnectionString = accesoDatos.rutaDatos();
 				command.CommandType = System.Data.CommandType.Text;
 				switch (range)
 				{
@@ -74,7 +74,7 @@ namespace Business
 			SqlDataReader lector;
 			try
 			{
-				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+				connection.ConnectionString = accesoDatos.rutaDatos();
 				command.CommandType = System.Data.CommandType.Text;
 				switch (range)
 				{
@@ -125,7 +125,7 @@ namespace Business
 			SqlCommand command = new SqlCommand();
 			try
 			{
-				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+				connection.ConnectionString = accesoDatos.rutaDatos();
 				command.CommandType = System.Data.CommandType.Text;
 				command.CommandText = "insert into ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenUrl,Precio) " +
 									  "values(@cod, @nombre, @desc, @marca, @cat, @imagen, @precio)";
@@ -159,7 +159,7 @@ namespace Business
 			SqlCommand command = new SqlCommand();
 			try
 			{
-				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+				connection.ConnectionString = accesoDatos.rutaDatos();
 				command.CommandType = System.Data.CommandType.Text;
 				command.CommandText = "delete from ARTICULOS where Codigo = @cod";
 									
@@ -187,7 +187,7 @@ namespace Business
 			SqlCommand command = new SqlCommand();
 			try
 			{
-				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+				connection.ConnectionString = accesoDatos.rutaDatos();
 				command.CommandType = System.Data.CommandType.Text;
 				command.CommandText = "delete from ARTICULOS where IdCategoria = @cod";
 
@@ -214,7 +214,7 @@ namespace Business
 			SqlCommand command = new SqlCommand();
 			try
 			{
-				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+				connection.ConnectionString = accesoDatos.rutaDatos();
 				command.CommandType = System.Data.CommandType.Text;
 				command.CommandText = "delete from ARTICULOS where IdMarca = @cod";
 
@@ -246,7 +246,7 @@ namespace Business
 
 			try
 			{
-				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+				connection.ConnectionString = accesoDatos.rutaDatos();
 				command.CommandType = System.Data.CommandType.Text;
 				command.CommandText = "select Nombre, Codigo, Descripcion, ImagenUrl, IdCategoria, IdMarca, Precio from ARTICULOS";
 				command.Connection = connection;

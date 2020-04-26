@@ -15,6 +15,7 @@ namespace FrontEnd
 {
     public partial class Form1 : Form
     {
+        bool images = true;
         public Form1()
         {
             InitializeComponent();
@@ -22,10 +23,13 @@ namespace FrontEnd
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Desea cargar imagenes? Al no cargarse se ahorra tiempo de proceso.", "Imagenes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                images = false;
+            }
             Startgrid();
-            StartFilter();
-
-            
+            StartFilter();        
         }
 
         private void dataGridView_Main_SelectionChanged(object sender, EventArgs e)
@@ -75,6 +79,7 @@ namespace FrontEnd
         private void button_DeleteCat_Click(object sender, EventArgs e)
         {
             BajaCategoria bajaCategoria = new BajaCategoria(0);
+            FilterData();
             bajaCategoria.ShowDialog();
             UpdateFilter();
             FilterData();
@@ -101,6 +106,7 @@ namespace FrontEnd
         private void button_DelMarca_Click(object sender, EventArgs e)
         {
             BajaCategoria bajaCategoria = new BajaCategoria(1);
+            UpdateFilter();
             bajaCategoria.ShowDialog();
             UpdateFilter();
             FilterData();
@@ -155,7 +161,20 @@ namespace FrontEnd
 
             // Se escribe la info de las instancias
             textBox_desc.Text = "Categoria: " + categoria.name + Environment.NewLine +"Marca: " + marca.name + Environment.NewLine + "Descripcion: " + producto.desc;
-            // pictureBox_Product.Load(producto.imagen);
+            if(images)
+            {
+            try
+            {
+            pictureBox_Product.Load(producto.imagen);
+
+            }
+            catch (Exception)
+            {
+                pictureBox_Product.Load("https://designshack.net/wp-content/uploads/placeholder-image-368x246.png");
+             
+            }
+            }
+
 
         }
 
@@ -233,5 +252,15 @@ namespace FrontEnd
 
         }
 
+        private void button_test_Click(object sender, EventArgs e)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            MessageBox.Show(accesoDatos.rutaDatos());
+        }
+
+        private void pictureBox_Product_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

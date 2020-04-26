@@ -52,6 +52,7 @@
             this.button_DelMarca = new System.Windows.Forms.Button();
             this.button_ModMarca = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_test = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Product)).BeginInit();
             this.groupBox_Filtros.SuspendLayout();
@@ -102,8 +103,12 @@
             // 
             // dataGridView_Main
             // 
+            this.dataGridView_Main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_Main.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView_Main.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView_Main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Main.Location = new System.Drawing.Point(25, 193);
+            this.dataGridView_Main.MultiSelect = false;
             this.dataGridView_Main.Name = "dataGridView_Main";
             this.dataGridView_Main.Size = new System.Drawing.Size(606, 385);
             this.dataGridView_Main.TabIndex = 4;
@@ -117,6 +122,7 @@
             this.pictureBox_Product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Product.TabIndex = 5;
             this.pictureBox_Product.TabStop = false;
+            this.pictureBox_Product.Click += new System.EventHandler(this.pictureBox_Product_Click);
             // 
             // comboBox_Filter
             // 
@@ -279,11 +285,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Marcas";
             // 
+            // button_test
+            // 
+            this.button_test.Location = new System.Drawing.Point(446, 84);
+            this.button_test.Name = "button_test";
+            this.button_test.Size = new System.Drawing.Size(75, 23);
+            this.button_test.TabIndex = 21;
+            this.button_test.Text = "button1";
+            this.button_test.UseVisualStyleBackColor = true;
+            this.button_test.Click += new System.EventHandler(this.button_test_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 688);
+            this.Controls.Add(this.button_test);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox_Producto);
@@ -291,6 +308,8 @@
             this.Controls.Add(this.pictureBox_Product);
             this.Controls.Add(this.dataGridView_Main);
             this.Controls.Add(this.textBox_desc);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Gestor de productos";
             this.Activated += new System.EventHandler(this.Form1_Activated);
@@ -331,6 +350,7 @@
         private System.Windows.Forms.Button button_DelMarca;
         private System.Windows.Forms.Button button_ModMarca;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button_test;
     }
 }
 

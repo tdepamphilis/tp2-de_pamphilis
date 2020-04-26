@@ -17,3 +17,4 @@ C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\
 C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\obj\Debug\FrontEnd.BajaCategoria.resources
 C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\obj\Debug\FrontEnd.NuevaCategoria.resources
 C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\obj\Debug\FrontEnd.FrmModificarCat.resources
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\FrontEnd\bin\Debug\Business.dll.config

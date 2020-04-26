@@ -7,3 +7,4 @@ C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Business\
 C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Business\obj\Debug\Business.csproj.CopyComplete
 C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Business\obj\Debug\Business.dll
 C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Business\obj\Debug\Business.pdb
+C:\Users\tdepa\Desktop\visual studio\tp2-de_pamphilis\TP2 De Pamphilis\Business\bin\Debug\Business.dll.config

@@ -9,6 +9,7 @@ namespace Business
 {
     public class MarcaBusiness
     {
+        AccesoDatos accesoDatos = new AccesoDatos();
         //------------LECTURA-------------
         public Marca buscar(int id)
         {
@@ -18,7 +19,7 @@ namespace Business
             SqlDataReader lector;
             try
             {
-                connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+                connection.ConnectionString = accesoDatos.rutaDatos();
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "select Descripcion, Id from Marcas where Id = @numero";
                 command.Parameters.AddWithValue("@numero", id);
@@ -48,7 +49,7 @@ namespace Business
             SqlDataReader lector;
             try
             {
-                connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+                connection.ConnectionString = accesoDatos.rutaDatos();
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "select Descripcion, Id from Marcas";
                 command.Connection = connection;
@@ -80,7 +81,7 @@ namespace Business
             SqlCommand command = new SqlCommand();
             try
             {
-                connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+                connection.ConnectionString = accesoDatos.rutaDatos();
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "delete from MARCAS where Id = @cod";
 
@@ -107,7 +108,7 @@ namespace Business
             SqlCommand command = new SqlCommand();
             try
             {
-                connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+                connection.ConnectionString = accesoDatos.rutaDatos();
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "insert into MARCAS values (@name)";
                 command.Parameters.AddWithValue("@name", name);
@@ -133,7 +134,7 @@ namespace Business
             SqlCommand command = new SqlCommand();
             try
             {
-                connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi ";
+                connection.ConnectionString = accesoDatos.rutaDatos();
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "UPDATE MARCAS set descripcion = @name where Id = @code";
                 command.Parameters.AddWithValue("@name", name);
