@@ -79,6 +79,7 @@ namespace FrontEnd
         private void button_DeleteCat_Click(object sender, EventArgs e)
         {
             BajaCategoria bajaCategoria = new BajaCategoria(0);
+            UpdateFilter();
             FilterData();
             bajaCategoria.ShowDialog();
             UpdateFilter();
@@ -160,7 +161,9 @@ namespace FrontEnd
 
 
             // Se escribe la info de las instancias
-            textBox_desc.Text = "Categoria: " + categoria.name + Environment.NewLine +"Marca: " + marca.name + Environment.NewLine + "Descripcion: " + producto.desc;
+            textBox_desc.Text = "CATEGORIA: " + categoria.name + Environment.NewLine +"MARCA: " + marca.name 
+                                + Environment.NewLine + "-------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine 
+                                + producto.desc;
             if(images)
             {
             try
@@ -255,7 +258,9 @@ namespace FrontEnd
         private void button_test_Click(object sender, EventArgs e)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
-            MessageBox.Show(accesoDatos.rutaDatos());
+           // MessageBox.Show(accesoDatos.rutaDatos());
+            textBox_desc.Text = accesoDatos.rutaDatos();
+
         }
 
         private void pictureBox_Product_Click(object sender, EventArgs e)

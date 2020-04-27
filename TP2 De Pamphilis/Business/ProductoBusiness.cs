@@ -24,7 +24,7 @@ namespace Business
 
 			try
 			{
-				connection.ConnectionString = accesoDatos.rutaDatos();
+				connection.ConnectionString = "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
 				command.CommandType = System.Data.CommandType.Text;
 				switch (range)
 				{

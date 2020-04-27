@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Business
 {
@@ -13,8 +14,18 @@ namespace Business
         {
 
             string aux = System.Configuration.ConfigurationManager.AppSettings["ruta"];
-            // return aux;
-            return "data source = DESKTOP-9SD09P6\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi";
+            return aux;
+            
+
+
+        }
+
+        public SqlConnection connection()
+        {
+            SqlConnection aux = new SqlConnection();
+            aux.ConnectionString = System.Configuration.ConfigurationManager.AppSettings["ruta"];
+            return aux;
+
 
         }
     }
