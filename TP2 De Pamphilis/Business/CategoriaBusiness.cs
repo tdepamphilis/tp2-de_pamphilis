@@ -36,9 +36,9 @@ namespace Business
 
 
             }
-            catch (Exception ex)
+            catch (Exception ex )
             {
-                throw ex;
+                return categoria; 
             }
 
         }

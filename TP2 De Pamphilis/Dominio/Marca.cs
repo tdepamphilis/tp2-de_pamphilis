@@ -11,6 +11,12 @@ namespace Dominio
         public int code { get; set; }
         public String name { get; set; }
 
+        public Marca()
+        {
+            code = -1;
+            name = "no encontrado";
+        }
+
         public override string ToString()
         {
             return name;

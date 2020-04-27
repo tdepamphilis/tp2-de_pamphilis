@@ -79,17 +79,19 @@ namespace FrontEnd
         private void button_DeleteCat_Click(object sender, EventArgs e)
         {
             BajaCategoria bajaCategoria = new BajaCategoria(0);
-            UpdateFilter();
-            FilterData();
             bajaCategoria.ShowDialog();
             UpdateFilter();
             FilterData();
+
         }
         private void button_ModCat_Click(object sender, EventArgs e)
         {
             FrmModificarCat frmModificarCat = new FrmModificarCat(0);
             frmModificarCat.ShowDialog();
+            int aux = comboBox_Filter.SelectedIndex;
             UpdateFilter();
+            comboBox_Filter.SelectedIndex = aux;
+            FilterData();
         }
         private void button_NuevaCat_Click(object sender, EventArgs e)
         {
@@ -107,7 +109,6 @@ namespace FrontEnd
         private void button_DelMarca_Click(object sender, EventArgs e)
         {
             BajaCategoria bajaCategoria = new BajaCategoria(1);
-            UpdateFilter();
             bajaCategoria.ShowDialog();
             UpdateFilter();
             FilterData();
@@ -116,8 +117,11 @@ namespace FrontEnd
         private void button_ModMarca_Click(object sender, EventArgs e)
         {
             FrmModificarCat frmModificarCat = new FrmModificarCat(1);
+            int aux = comboBox_Filter.SelectedIndex;
             frmModificarCat.ShowDialog();
             UpdateFilter();
+            comboBox_Filter.SelectedIndex = aux;
+            FilterData();
         }
         private void Form1_Activated(object sender, EventArgs e)
         {
@@ -205,44 +209,59 @@ namespace FrontEnd
             ProductoBusiness productoBusiness = new ProductoBusiness();
             Categoria categoria;
             Marca marca;
-            
-            if(comboBox_FilterBy.SelectedIndex == 0)
+            try
             {
-                if(textBox_Search.Text == "")
+                if (comboBox_FilterBy.SelectedIndex == 0)
                 {
-                    // se muestra todo
-                    Startgrid();
-                } else
-                {
-                    // Se muestra segun criterio
-                    dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text,0,0);
+                    if (textBox_Search.Text == "")
+                    {
+                        // se muestra todo
+                        Startgrid();
+                    }
+                    else
+                    {
+                        // Se muestra segun criterio
+                        dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text, 0, 0);
+                    }
                 }
-            } else if(comboBox_FilterBy.SelectedIndex == 1)
-            {
-                categoria = (Categoria)comboBox_Filter.SelectedItem;
-                if (textBox_Search.Text == "")
+                else if (comboBox_FilterBy.SelectedIndex == 1)
                 {
-                    // se muestran todos los de la categoria                 
-                    dataGridView_Main.DataSource = productoBusiness.listar(1,categoria.code);
-                } else
-                {
-                    // se busca segun criterio en la categoria
-                    dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text, 1, categoria.code);
+                    categoria = (Categoria)comboBox_Filter.SelectedItem;
+                    if (textBox_Search.Text == "")
+                    {
+                        // se muestran todos los de la categoria                 
+                        dataGridView_Main.DataSource = productoBusiness.listar(1, categoria.code);
+                    }
+                    else
+                    {
+                        // se busca segun criterio en la categoria
+                        dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text, 1, categoria.code);
+                    }
                 }
-            } else if(comboBox_FilterBy.SelectedIndex == 2)
-            {
-                marca = (Marca)comboBox_Filter.SelectedItem;
-                if(textBox_Search.Text == "")
+                else if (comboBox_FilterBy.SelectedIndex == 2)
                 {
-                    // Se buscan todos los de la marca
-                    dataGridView_Main.DataSource = productoBusiness.listar(2, marca.code);
-                } else
-                {
-                    // Se busca segun criterio en la Marca
-                    dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text, 2, marca.code);
-                }
+                    marca = (Marca)comboBox_Filter.SelectedItem;
+                    if (textBox_Search.Text == "")
+                    {
+                        // Se buscan todos los de la marca
+                        dataGridView_Main.DataSource = productoBusiness.listar(2, marca.code);
+                    }
+                    else
+                    {
+                        // Se busca segun criterio en la Marca
+                        dataGridView_Main.DataSource = productoBusiness.listarCriterio(textBox_Search.Text, 2, marca.code);
+                    }
 
+                }
             }
+           
+            catch (Exception)
+            {
+
+               
+            }
+
+            
         }
 
         //-------------Operacines---------------------
